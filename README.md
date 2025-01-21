@@ -16,6 +16,8 @@ Este proyecto es un juego de habilidad en el que el jugador controla una esfera 
 
 ## Escenario
 El escenario es un plano con cubos distribuidos aleatoriamente. Ademas cuenta con obstáculos que el jugador debe evitar si no quiere perder tiempo.
+- **Contador de objetos recogidos**: Muestra el número de objetos recogidos.
+- **Mensaje de victoria**: Aparece cuando se recogen todos los objetos.
 
 ## Scripts
 - **PlayerController**: Controla el movimiento de la esfera.
