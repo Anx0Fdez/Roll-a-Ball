@@ -20,5 +20,8 @@ El escenario es un plano con cubos distribuidos aleatoriamente. Ademas cuenta co
 ## Scripts
 - **PlayerController**: Controla el movimiento de la esfera.
 - **CameraController**: Controla la posición de la cámara.
+- **Rotator**: Hace que los objetos roten.
+
+
   
 
