@@ -1,36 +1,44 @@
-# Roll a Ball -- Unity
+# Roll a Ball `Unity`
 ###### Anxo Fernández Rodríguez
 
 ---
-
->[!IMPORTANT]
-> - `Script` de movimiento de la esfera: `[PlayerController.cs](Assets/Scripts/CameraController.cs)
-> - `Script` de movimiento de la cámara: [CameraController.cs](Assets/Scripts/CameraController.cs)
-> - `Script` para cambiar entre cámaras: [CameraSwitcher.cs](Assets/Scripts/CameraSwitcher.cs)
-> - `Script` para la primera persona de la cámara: [FirstPersonController.cs](Assets/Scripts/FirstPersonController.cs)
-
-
 ![Roll a Ball](images/img1.png)
 
-## Descripción
-Este proyecto es un juego de habilidad en el que el jugador controla una esfera que debe recoger objetos en un escenario 3D. El objetivo es recoger todos los objetos posibles en el menor tiempo posible. El juego cuenta con un contador de tiempo y un contador de objetos recogidos.
+## Descrición
+Este proxecto é un xogo de habilidade no que o xogador controla unha esfera que debe recoller obxectos nun escenario 3D. O obxectivo é recoller todos os obxectos posibles no menor tempo posible. O xogo conta cun contador de tempo e un contador de obxectos recollidos.
 
-## Controles
-- **W, A, S, D**: Mover la esfera.
+## Controis
+- **W, A, S, D**: Mover a esfera.
 
-## Objetos
-- **Cubos**: Suma 1 al contador de objetos recogidos.
+## Obxectos
+- **Cubos**: Suma 1 ao contador de obxectos recollidos.
 
 ## Escenario
-El escenario es un plano con cubos distribuidos aleatoriamente. Ademas cuenta con obstáculos que el jugador debe evitar si no quiere perder tiempo.
-- **Contador de objetos recogidos**: Muestra el número de objetos recogidos.
-- **Mensaje de victoria**: Aparece cuando se recogen todos los objetos.
+O escenario é un plano con cubos distribuídos aleatoriamente. Ademais conta con obstáculos que o xogador debe evitar se non quere perder tempo.
+- **Contador de obxectos recollidos**: Mostra o número de obxectos recollidos.
+- **Mensaxe de vitoria**: Aparece cando se recollen todos os obxectos.
 
 ## Scripts
-- **PlayerController**: Controla el movimiento de la esfera.
-- **CameraController**: Controla la posición de la cámara.
-- **Rotator**: Hace que los objetos roten.
 
+>[!IMPORTANT]
+> - `Script` de movemento da esfera: [PlayerController.cs](Assets/Scripts/CameraController.cs)
+> - `Script` de movemento da cámara: [CameraController.cs](Assets/Scripts/CameraController.cs)
+> - `Script` para cambiar entre cámaras: [CameraSwitcher.cs](Assets/Scripts/CameraSwitcher.cs)
+> - `Script` para a primeira persoa da cámara: [FirstPersonController.cs](Assets/Scripts/FirstPersonController.cs)
 
-  
+## Explicación dos `Scripts`
 
+### PlayerController
+- `Start()`: Inicializa `Rigidbody`, contador de obxectos e UI.
+- `OnMove(InputValue movementValue)`: Detecta e converte a entrada de movemento.
+- `FixedUpdate()`: Aplica forzas de movemento.
+- `OnTriggerEnter(Collider other)`: Xestiona a recollida de obxectos.
+- `SetCountText()`: Actualiza a UI.
+
+### FirstPersonController
+- `Update()`: Chama a `MoveAndRotateCamera()`.
+- `MoveAndRotateCamera()`: Move e rota a cámara.
+
+### CameraSwitcher
+- `Start()`: Inicializa e establece a cámara activa.
+- `SwitchCamera()`: Cambia a cámara activa.
