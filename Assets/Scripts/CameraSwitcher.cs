@@ -1,44 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class CameraSwitcher : MonoBehaviour 
+public class CameraController : MonoBehaviour
 {
-    public Camera[] cameras; // Array de cámaras configuradas en el Inspector
-    private int currentCameraIndex = 0; // Índice de la cámara activa
 
+    public GameObject player; // Isto é un GameObject que se chama player que serve para gardar o obxecto que queremos seguir
+    private Vector3 offset; // Isto é un Vector3 que se chama offset que serve para gardar a distancia entre a cámara e o obxecto que queremos seguir
+    
+    // Start é chamado antes da primeira actualización do frame
     void Start()
     {
-        // Asegúrate de que solo una cámara esté activa al inicio
-        ActivateCamera(currentCameraIndex);
+        offset = transform.position - player.transform.position; // Calculamos a distancia entre a cámara e o obxecto que queremos seguir
     }
 
-    void Update()
+    // Update é chamado unha vez por cada frame
+    void LateUpdate()
     {
-        // Detectar si se presiona la tecla "C"
-        if (Keyboard.current.cKey.wasPressedThisFrame)
-        {
-            SwitchCamera();
-        }
-    }
-
-    void SwitchCamera()
-    {
-        // Desactivar la cámara actual
-        cameras[currentCameraIndex].enabled = false;
-
-        // Cambiar al siguiente índice (ciclo circular)
-        currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
-
-        // Activar la nueva cámara
-        ActivateCamera(currentCameraIndex);
-    }
-
-    void ActivateCamera(int index)
-    {
-        // Activa solo la cámara especificada
-        for (int i = 0; i < cameras.Length; i++)
-        {
-            cameras[i].enabled = i == index;
-        }
+        transform.position = player.transform.position + offset; // Actualizamos a posición da cámara para que siga ao obxecto que queremos seguir
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    // Update is called once per frame
+    // Update é chamado unha vez por cada frame
     void Update()
     {
-        // Rotate the object on X, Y, and Z axes by specified amounts, adjusted for frame rate.
+        // Rotar o obxecto nos eixes X, Y e Z por cantidades especificadas, axustadas para a taxa de cadros.
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
     }
 

@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class FirstPersonController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Velocidad de movimiento de la cámara
+    public float moveSpeed = 5f; // Velocidade de movemento da cámara
 
     void Update()
     {
-        // Mover la cámara y ajustarla según la dirección del jugador
+        // Mover a cámara e axustala segundo a dirección do xogador
         MoveAndRotateCamera();
     }
 
@@ -16,23 +16,20 @@ public class FirstPersonController : MonoBehaviour
         float moveX = 0f;
         float moveZ = 0f;
 
-        // Detectar las teclas de movimiento (flechas)
+        // Detectar as teclas de movemento (frechas)
         if (Keyboard.current.upArrowKey.isPressed) moveZ = 1f;
         if (Keyboard.current.downArrowKey.isPressed) moveZ = -1f;
         if (Keyboard.current.rightArrowKey.isPressed) moveX = 1f;
         if (Keyboard.current.leftArrowKey.isPressed) moveX = -1f;
 
-        // Calcular la dirección de movimiento
+        // Calcular a dirección de movemento
         Vector3 moveDirection = new Vector3(moveX, 0f, moveZ);
 
         if (moveDirection != Vector3.zero)
         {
-            // Ajustar la rotación de la cámara para que mire en la dirección del movimiento
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection); // Quaternion es una estructura que representa una rotación en 3D y sirve para almacenar y manipular rotaciones
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // En esta linea, se interpola entre la rotación actual y la rotación objetivo para que la transición sea suave
+            // Axustar a rotación da cámara para que mire na dirección do movemento
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection); // Quaternion é unha estrutura que representa unha rotación en 3D e serve para almacenar e manipular rotacións
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // Nesta liña, interpólase entre a rotación actual e a rotación obxectivo para que a transición sexa suave
         }
-
-        // Aplicar movimiento a la cámara
-        transform.position += moveDirection.normalized * moveSpeed * Time.deltaTime;
     }
 }

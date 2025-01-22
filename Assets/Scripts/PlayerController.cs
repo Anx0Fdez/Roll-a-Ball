@@ -4,107 +4,107 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    // Rigidbody of the player.
+    // Rigidbody do xogador.
     private Rigidbody rb; 
 
-    // Variable to keep track of collected "PickUp" objects.
+    // Variable para levar a conta dos obxectos "PickUp" recollidos.
     private int count;
 
-    // Movement along X and Y axes.
+    // Movemento ao longo dos eixes X e Y.
     private float movementX;
     private float movementY;
 
-    // Speed at which the player moves.
+    // Velocidade á que se move o xogador.
     public float speed = 0;
 
-    // UI text component to display count of "PickUp" objects collected.
+    // Compoñente de texto UI para mostrar a conta dos obxectos "PickUp" recollidos.
     public TextMeshProUGUI countText;
 
-    // UI object to display winning text.
+    // Obxecto UI para mostrar o texto de gañar.
     public GameObject winTextObject;
 
-    // Audio clip to play when collecting a "PickUp".
+    // Clip de audio para reproducir ao recoller un "PickUp".
     public AudioClip pickupSound;
 
-    // AudioSource to play sounds.
+    // AudioSource para reproducir sons.
     private AudioSource audioSource;
 
-    // Start is called before the first frame update.
+    // Start é chamado antes da primeira actualización do frame.
     void Start()
     {
-        // Get and store the Rigidbody component attached to the player.
+        // Obter e almacenar o compoñente Rigidbody adxunto ao xogador.
         rb = GetComponent<Rigidbody>();
 
-        // Initialize count to zero.
+        // Inicializar a conta a cero.
         count = 0;
 
-        // Update the count display.
+        // Actualizar a visualización da conta.
         SetCountText();
 
-        // Initially set the win text to be inactive.
+        // Inicialmente establecer o texto de gañar como inactivo.
         winTextObject.SetActive(false);
 
-        // Add an AudioSource component if it doesn't already exist.
+        // Engadir un compoñente AudioSource se non existe xa.
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false; // Avoid playing any sound on start.
+        audioSource.playOnAwake = false; // Evitar reproducir calquera son ao comezo.
     }
  
-    // This function is called when a move input is detected.
+    // Esta función é chamada cando se detecta unha entrada de movemento.
     void OnMove(InputValue movementValue)
     {
-        // Convert the input value into a Vector2 for movement.
+        // Converter o valor de entrada nun Vector2 para o movemento.
         Vector2 movementVector = movementValue.Get<Vector2>();
 
-        // Store the X and Y components of the movement.
+        // Almacenar os compoñentes X e Y do movemento.
         movementX = movementVector.x; 
         movementY = movementVector.y; 
     }
 
-    // FixedUpdate is called once per fixed frame-rate frame.
+    // FixedUpdate é chamado unha vez por cada frame de taxa de cadros fixa.
     private void FixedUpdate() 
     {
-        // Create a 3D movement vector using the X and Y inputs.
+        // Crear un vector de movemento 3D usando as entradas X e Y.
         Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
 
-        // Apply force to the Rigidbody to move the player.
+        // Aplicar forza ao Rigidbody para mover o xogador.
         rb.AddForce(movement * speed); 
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        // Check if the object the player collided with has the "PickUp" tag.
+        // Comprobar se o obxecto co que o xogador colidiu ten a etiqueta "PickUp".
         if (other.gameObject.CompareTag("PickUp")) 
         {
-            // Deactivate the collided object (making it disappear).
+            // Desactivar o obxecto co que colidiu (facéndoo desaparecer).
             other.gameObject.SetActive(false);
 
-            // Increment the count of "PickUp" objects collected.
+            // Incrementar a conta dos obxectos "PickUp" recollidos.
             count = count + 1;
 
-            // Play the pickup sound.
+            // Reproducir o son de recollida.
             if (pickupSound != null)
             {
                 audioSource.PlayOneShot(pickupSound);
             }
 
-            // Update the count display.
+            // Actualizar a visualización da conta.
             SetCountText();
         }
     }
 
-    // Function to update the displayed count of "PickUp" objects collected.
+    // Función para actualizar a visualización da conta dos obxectos "PickUp" recollidos.
     void SetCountText() 
     {
-        // Update the count text with the current count.
-        countText.text = "Count: " + count.ToString();
+        // Actualizar o texto da conta coa conta actual.
+        countText.text = "Conta: " + count.ToString();
 
-        // Check if the count has reached or exceeded the win condition.
+        // Comprobar se a conta alcanzou ou superou a condición de gañar.
         if (count >= 12)
         {
-            // Display the win text.
+            // Mostrar o texto de gañar.
             winTextObject.SetActive(true);
 
-            // Destroy the enemy GameObject.
+            // Destruir o obxecto GameObject do inimigo.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
@@ -113,12 +113,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Destroy the current object
+            // Destruir o obxecto actual
             Destroy(gameObject); 
      
-            // Update the winText to display "You Lose!"
+            // Actualizar o winText para mostrar "Perdiches!"
             winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            winTextObject.GetComponent<TextMeshProUGUI>().text = "Perdiches!";
         }
     }
 }
