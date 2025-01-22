@@ -3,6 +3,13 @@
 
 ---
 
+>[!IMPORTANT]SCRIPTS
+> - Sript de movimiento de la esfera: [PlayerController.cs](Assets/Scripts/CameraController.cs)
+> - Script de movimiento de la cámara: [CameraController.cs](Assets/Scripts/CameraController.cs)
+> - Script para cambiar entre cámaras: [CameraSwitcher.cs](Assets/Scripts/CameraSwitcher.cs)
+> - Script para la primera persona de la cámara: [FirstPersonController.cs](Assets/Scripts/FirstPersonController.cs)
+
+
 ![Roll a Ball](images/img1.png)
 
 ## Descripción
