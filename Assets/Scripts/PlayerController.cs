@@ -10,13 +10,6 @@ public class PlayerController : MonoBehaviour
     // Variable para levar a conta dos obxectos "PickUp" recollidos.
     private int count;
 
-    // Movemento ao longo dos eixes X e Y.
-    private float movementX;
-    private float movementY;
-
-    // Velocidade á que se move o xogador.
-    public float speed = 0;
-
     // Compoñente de texto UI para mostrar a conta dos obxectos "PickUp" recollidos.
     public TextMeshProUGUI countText;
 
@@ -47,27 +40,6 @@ public class PlayerController : MonoBehaviour
         // Engadir un compoñente AudioSource se non existe xa.
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false; // Evitar reproducir calquera son ao comezo.
-    }
- 
-    // Esta función é chamada cando se detecta unha entrada de movemento.
-    void OnMove(InputValue movementValue)
-    {
-        // Converter o valor de entrada nun Vector2 para o movemento.
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        // Almacenar os compoñentes X e Y do movemento.
-        movementX = movementVector.x; 
-        movementY = movementVector.y; 
-    }
-
-    // FixedUpdate é chamado unha vez por cada frame de taxa de cadros fixa.
-    private void FixedUpdate() 
-    {
-        // Crear un vector de movemento 3D usando as entradas X e Y.
-        Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
-
-        // Aplicar forza ao Rigidbody para mover o xogador.
-        rb.AddForce(movement * speed); 
     }
 
     void OnTriggerEnter(Collider other) 

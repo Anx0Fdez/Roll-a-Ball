@@ -3,11 +3,10 @@ using UnityEngine.InputSystem;
 
 public class FirstPersonController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Velocidade de movemento da cámara
+    public float moveSpeed = 5f; // Velocidad de movimiento de la cámara
 
     void Update()
     {
-        // Mover a cámara e axustala segundo a dirección do xogador
         MoveAndRotateCamera();
     }
 
@@ -16,20 +15,20 @@ public class FirstPersonController : MonoBehaviour
         float moveX = 0f;
         float moveZ = 0f;
 
-        // Detectar as teclas de movemento (frechas)
-        if (Keyboard.current.upArrowKey.isPressed) moveZ = 1f;
-        if (Keyboard.current.downArrowKey.isPressed) moveZ = -1f;
-        if (Keyboard.current.rightArrowKey.isPressed) moveX = 1f;
-        if (Keyboard.current.leftArrowKey.isPressed) moveX = -1f;
+        if (Keyboard.current.upArrowKey.isPressed) moveZ = 1f; // Si se presiona la tecla de flecha arriba, mover hacia adelante
+        if (Keyboard.current.downArrowKey.isPressed) moveZ = -1f; // Si se presiona la tecla de flecha abajo, mover hacia atrás
+        if (Keyboard.current.rightArrowKey.isPressed) moveX = 1f; // Si se presiona la tecla de flecha derecha, mover hacia la derecha
+        if (Keyboard.current.leftArrowKey.isPressed) moveX = -1f; // Si se presiona la tecla de flecha izquierda, mover hacia la izquierda
 
-        // Calcular a dirección de movemento
-        Vector3 moveDirection = new Vector3(moveX, 0f, moveZ);
+        Vector3 moveDirection = new Vector3(moveX, 0f, moveZ); // Dirección de movimiento
 
-        if (moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero) // Si hay movimiento
         {
-            // Axustar a rotación da cámara para que mire na dirección do movemento
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection); // Quaternion é unha estrutura que representa unha rotación en 3D e serve para almacenar e manipular rotacións
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // Nesta liña, interpólase entre a rotación actual e a rotación obxectivo para que a transición sexa suave
+            // Ajustar la rotación de la cámara para que mire en la dirección del movimiento
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f); // Reducir la velocidad de rotación
         }
+
+        transform.position += moveDirection.normalized * (moveSpeed * 0.5f) * Time.deltaTime; // Reducir la velocidad de movimiento
     }
 }
