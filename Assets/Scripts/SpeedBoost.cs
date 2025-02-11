@@ -8,7 +8,7 @@ public class SpeedBoost : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Asegúrate de que la bola tiene el tag "Player"
         {
-            Rigidbody rb = other.GetComponent<Rigidbody>();
+            Rigidbody rb = other.GetComponent<Rigidbody>(); // Obtiene el componente Rigidbody del objeto que entra en el trigger
             if (rb != null)
             {
                 // Obtener la normal de la superficie de la rampa
@@ -21,6 +21,7 @@ public class SpeedBoost : MonoBehaviour
                     // Proyectar la dirección del jugador en la normal para adaptarse a la rampa
                     Vector3 boostDirection = Vector3.ProjectOnPlane(playerVelocity, normal).normalized;
 
+                    // Aplicar la fuerza de boost en la dirección calculada
                     rb.AddForce(boostDirection * boostForce, ForceMode.Impulse);
                 }
             }

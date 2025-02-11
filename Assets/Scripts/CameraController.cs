@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
-    public GameObject player; // Isto é un GameObject que se chama player que serve para gardar o obxecto que queremos seguir
-    private Vector3 offset; // Isto é un Vector3 que se chama offset que serve para gardar a distancia entre a cámara e o obxecto que queremos seguir
+    public GameObject player; // Esto es un GameObject llamado player que sirve para guardar el objeto que queremos seguir
+    private Vector3 offset; // Esto es un Vector3 llamado offset que sirve para guardar la distancia entre la cámara y el objeto que queremos seguir
     
-    // Start é chamado antes da primeira actualización do frame
+    // Start es llamado antes de la primera actualización del frame
     void Start()
     {
-        offset = transform.position - player.transform.position; // Calculamos a distancia entre a cámara e o obxecto que queremos seguir
+        offset = transform.position - player.transform.position; // Calculamos la distancia entre la cámara y el objeto que queremos seguir
     }
 
-    // Update é chamado unha vez por cada frame
+    // LateUpdate es llamado una vez por cada frame, después de que todos los Update hayan sido llamados
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset; // Actualizamos a posición da cámara para que siga ao obxecto que queremos seguir
+        transform.position = player.transform.position + offset; // Actualizamos la posición de la cámara para que siga al objeto que queremos seguir
     }
 }

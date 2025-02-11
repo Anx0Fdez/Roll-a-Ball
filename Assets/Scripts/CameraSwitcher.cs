@@ -16,7 +16,7 @@ public class CameraSwitcher : MonoBehaviour
         // Detecta si se presiona la tecla "C"
         if (Keyboard.current.cKey.wasPressedThisFrame)
         {
-            SwitchCamera();
+            SwitchCamera(); // Cambia la cámara activa
         }
     }
 
