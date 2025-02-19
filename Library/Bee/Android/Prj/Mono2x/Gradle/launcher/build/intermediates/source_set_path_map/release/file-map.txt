@@ -1,0 +1,9 @@
+com.DefaultCompany.RollABallEjemplo.launcher-pngs-0 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/pngs/release
+com.DefaultCompany.RollABallEjemplo.launcher-resValues-1 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/resValues/release
+com.DefaultCompany.RollABallEjemplo.launcher-rs-2 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/generated/res/rs/release
+com.DefaultCompany.RollABallEjemplo.launcher-mergeReleaseResources-3 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.DefaultCompany.RollABallEjemplo.launcher-mergeReleaseResources-4 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.DefaultCompany.RollABallEjemplo.launcher-merged_res-5 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/merged_res/release
+com.DefaultCompany.RollABallEjemplo.launcher-main-6 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/main/res
+com.DefaultCompany.RollABallEjemplo.launcher-release-7 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/src/release/res
+com.DefaultCompany.RollABallEjemplo.launcher-packaged_res-8 /Users/anxo/Desktop/Roll-a-Ball/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/packaged_res/release
