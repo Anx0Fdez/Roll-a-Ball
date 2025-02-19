@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 6e5b0fa412c6f46fd8b3eeceda79ae5d
+  productGUID: b6a923f6886dd408a84db3583795b3ad
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Game001
+  productName: RollABallEjemplo
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -161,7 +161,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.RollABallEjemplo
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -681,14 +682,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Game001
+  metroPackageName: RollABallEjemplo
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Game001
+  metroApplicationDescription: RollABallEjemplo
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -758,11 +759,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: e8f47775-a1cd-4e54-8adf-c48973bf6051
+  cloudProjectId: b64b3e41-db86-474b-8794-7d0da51947ca
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Game001 2025-01-21_10-10-42
-  organizationId: anxofernandezrodriguez05
+  projectName: RollABallEjemplo
+  organizationId: emontesadraz
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

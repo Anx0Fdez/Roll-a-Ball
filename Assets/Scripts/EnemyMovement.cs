@@ -1,29 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Referencia al transform del jugador.
-    public Transform player;
+    public Transform player; // Objetivo al que se dirige el enemigo
+    private NavMeshAgent navMeshAgent; // Componente NavMeshAgent del enemigo
 
-    // Referencia al componente NavMeshAgent para la búsqueda de caminos.
-    private NavMeshAgent navMeshAgent;
-
-    // Start es llamado antes de la primera actualización del frame.
+    // Start is called before the first frame update
     void Start()
     {
-        // Obtiene y almacena el componente NavMeshAgent adjunto a este objeto.
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>(); // Obtiene el componente NavMeshAgent del enemigo
     }
 
-    // Update es llamado una vez por cada frame.
+    // Update sirve para actualizar el estado del enemigo en cada frame
     void Update()
     {
-        // Si hay una referencia al jugador...
-        if (player != null)
+        if (player != null) // Si el objetivo al que se dirige el enemigo no es nulo
         {
-            // Establece el destino del enemigo a la posición actual del jugador.
-            navMeshAgent.SetDestination(player.position);
+            navMeshAgent.SetDestination(player.position); // Establece la posicion del objetivo al que se dirige el enemigo
         }
     }
 }
