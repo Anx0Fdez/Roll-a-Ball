@@ -4,79 +4,79 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    // Rigidbody del jugador.
+    // Rigidbody of the player.
     private Rigidbody rb; 
 
-    // Variable para llevar la cuenta de los objetos "PickUp" recogidos.
+    // Variable to keep track of collected "PickUp" objects.
     private int count;
 
-    // Componente de texto UI para mostrar la cuenta de los objetos "PickUp" recogidos.
+    // UI text component to display count of "PickUp" objects collected.
     public TextMeshProUGUI countText;
 
-    // Objeto UI para mostrar el texto de ganar.
+    // UI object to display winning text.
     public GameObject winTextObject;
 
-    // Clip de audio para reproducir al recoger un "PickUp".
+    // Audio clip to play when collecting a "PickUp".
     public AudioClip pickupSound;
 
-    // AudioSource para reproducir sonidos.
+    // AudioSource to play sounds.
     private AudioSource audioSource;
 
-    // Start es llamado antes de la primera actualización del frame.
+    // Start is called before the first frame update.
     void Start()
     {
-        // Obtener y almacenar el componente Rigidbody adjunto al jugador.
+        // Get and store the Rigidbody component attached to the player.
         rb = GetComponent<Rigidbody>();
 
-        // Inicializar la cuenta a cero.
+        // Initialize count to zero.
         count = 0;
 
-        // Actualizar la visualización de la cuenta.
+        // Update the count display.
         SetCountText();
 
-        // Inicialmente establecer el texto de ganar como inactivo.
+        // Initially set the win text to be inactive.
         winTextObject.SetActive(false);
 
-        // Añadir un componente AudioSource si no existe ya.
+        // Add an AudioSource component if it doesn't already exist.
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false; // Evitar reproducir cualquier sonido al comienzo.
+        audioSource.playOnAwake = false; // Avoid playing any sound on start.
     }
 
     void OnTriggerEnter(Collider other) 
     {
-        // Comprobar si el objeto con el que el jugador colisionó tiene la etiqueta "PickUp".
+        // Check if the object the player collided with has the "PickUp" tag.
         if (other.gameObject.CompareTag("PickUp")) 
         {
-            // Desactivar el objeto con el que colisionó (haciéndolo desaparecer).
+            // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
 
-            // Incrementar la cuenta de los objetos "PickUp" recogidos.
+            // Increment the count of "PickUp" objects collected.
             count = count + 1;
 
-            // Reproducir el sonido de recogida.
+            // Play the pickup sound.
             if (pickupSound != null)
             {
                 audioSource.PlayOneShot(pickupSound);
             }
 
-            // Actualizar la visualización de la cuenta.
+            // Update the count display.
             SetCountText();
         }
     }
 
-    // Función para actualizar la visualización de la cuenta de los objetos "PickUp" recogidos.
+    // Function to update the displayed count of "PickUp" objects collected.
     void SetCountText() 
     {
-        // Actualizar el texto de la cuenta con la cuenta actual.
-        countText.text = "Cuenta: " + count.ToString();
+        // Update the count text with the current count.
+        countText.text = "Count: " + count.ToString();
 
-        // Comprobar si la cuenta alcanzó o superó la condición de ganar.
-        if (count >= 12)
+        // Check if the count has reached or exceeded the win condition.
+        if (count >= 6)
         {
-            // Mostrar el texto de ganar.
+            // Display the win text.
             winTextObject.SetActive(true);
 
-            // Destruir el objeto GameObject del enemigo.
+            // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
@@ -85,12 +85,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Destruir el objeto actual
+            // Destroy the current object
             Destroy(gameObject); 
      
-            // Actualizar el winText para mostrar "¡Perdiste!"
+            // Update the winText to display "You Lose!"
             winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "¡Perdiste!";
+            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
         }
     }
 }
