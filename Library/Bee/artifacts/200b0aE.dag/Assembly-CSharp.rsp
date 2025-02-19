@@ -366,6 +366,7 @@
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Rotator.cs"
 "Assets/Scripts/SpeedBoost.cs"
+"Assets/States/StandState.cs"
 -langversion:9.0
 /deterministic
 /optimize+

@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/BallMovement.cs" />
     <Compile Include="Assets/Scripts/EnemyMovement.cs" />
+    <Compile Include="Assets/States/StandState.cs" />
     <Compile Include="Assets/Scripts/Rotator.cs" />
     <Compile Include="Assets/Scripts/FirstPersonController.cs" />
     <Compile Include="Assets/Scripts/PlayerController.cs" />
